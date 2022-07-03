@@ -18,6 +18,7 @@ public class BaseClass {
         options.addArguments("--disable-blink-features=AutomationControlled");
         driver = new ChromeDriver(options);
     }
+    }
 
 
     @BeforeMethod
