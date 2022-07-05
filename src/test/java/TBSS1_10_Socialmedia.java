@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.Set;
 
-public class TBSS110_Socialmedia extends BaseClass {
+public class TBSS1_10_Socialmedia extends BaseClass {
 
 
     @Test(priority = 1)
