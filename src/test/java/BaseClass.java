@@ -29,7 +29,7 @@ public class BaseClass {
     }
 
 
-    @AfterMethod
+    @AfterMethod(enabled = false)
     public void tearDownMethod() {
         driver.quit();
     }
