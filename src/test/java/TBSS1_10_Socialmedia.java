@@ -7,7 +7,6 @@ import java.util.Set;
 
 public class TBSS1_10_Socialmedia extends BaseClass {
 
-
     @Test(priority = 1)
     public void faceBook123() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
