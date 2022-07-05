@@ -5,99 +5,93 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.Set;
 
-public class TBSS110_Socialmedia extends BaseClass{
+public class TBSS110_Socialmedia extends BaseClass {
 
 
-
-    @Test
-        public void facebook123(){
+    @Test(priority = 1)
+    public void faceBook123() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        String FacebookUrl="https://www.facebook.com/lexus";
+        String facebookUrl = "https://www.facebook.com/lexus";
         driver.get("https://www.lexus.com/");
-MJJ7Utility.jsClick(driver,driver.findElement(By.xpath("//a[@href='https://www.facebook.com/lexus']")));
+        MJJ7Utility.jsClick(driver, driver.findElement(By.xpath("//a[@href='https://www.facebook.com/lexus']")));
         Set<String> windowHandles = driver.getWindowHandles();
         for (String windowHandle : windowHandles) {
-            driver.switchTo().window(windowHandle);}
-            System.out.println(driver.getCurrentUrl());
-            System.out.println(driver.getTitle());
-            Assert.assertEquals(driver.getCurrentUrl(),FacebookUrl);
-
+            driver.switchTo().window(windowHandle);
         }
-    @Test
-    public void twitter123(){
-driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        String twitterUrl="https://twitter.com/lexus";
-        driver.get("https://www.lexus.com/");
-        MJJ7Utility.jsClick(driver,driver.findElement(By.xpath("//a[@href='https://twitter.com/lexus']")));
-        Set<String> windowHandles = driver.getWindowHandles();
-        for (String windowHandle : windowHandles) {
-            driver.switchTo().window(windowHandle);}
-        System.out.println(driver.getCurrentUrl());
-        System.out.println(driver.getTitle());
-        Assert.assertEquals(driver.getCurrentUrl(),twitterUrl);
+        Assert.assertEquals(driver.getCurrentUrl(), facebookUrl);
 
     }
-    @Test
-    public void youtube123(){
+
+    @Test(priority = 2)
+    public void twitter123() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        String youtubeUrl="https://www.youtube.com/Lexus";
+        String twitterUrl = "https://twitter.com/lexus";
         driver.get("https://www.lexus.com/");
-        MJJ7Utility.jsClick(driver,driver.findElement(By.xpath("//a[@href='https://www.youtube.com/Lexus']")));
+        MJJ7Utility.jsClick(driver, driver.findElement(By.xpath("//a[@href='https://twitter.com/lexus']")));
         Set<String> windowHandles = driver.getWindowHandles();
         for (String windowHandle : windowHandles) {
-            driver.switchTo().window(windowHandle);}
-        System.out.println(driver.getCurrentUrl());
-        System.out.println(driver.getTitle());
-        Assert.assertEquals(driver.getCurrentUrl(),youtubeUrl);
+            driver.switchTo().window(windowHandle);
+        }
+        Assert.assertEquals(driver.getCurrentUrl(), twitterUrl);
 
     }
-    @Test
-    public void instgram123(){
+
+    @Test(priority = 3)
+    public void youtube123() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        String instgramUrl="https://www.instagram.com/lexususa/";
+        String youtubeUrl = "https://www.youtube.com/Lexus";
         driver.get("https://www.lexus.com/");
-        MJJ7Utility.jsClick(driver,driver.findElement(By.xpath("//a[@href='http://instagram.com/lexususa']")));
+        MJJ7Utility.jsClick(driver, driver.findElement(By.xpath("//a[@href='https://www.youtube.com/Lexus']")));
         Set<String> windowHandles = driver.getWindowHandles();
         for (String windowHandle : windowHandles) {
-            driver.switchTo().window(windowHandle);}
-        System.out.println(driver.getCurrentUrl());
-        System.out.println(driver.getTitle());
-        Assert.assertEquals(driver.getCurrentUrl(),instgramUrl);
+            driver.switchTo().window(windowHandle);
+        }
+        Assert.assertEquals(driver.getCurrentUrl(), youtubeUrl);
 
     }
-    @Test
-    public void pineterest123(){
+
+    @Test(priority = 4)
+    public void instgram123() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        String pineterestUrl="https://www.pinterest.com/lexususa/";
+        String instgramUrl = "https://www.instagram.com/accounts/login/?next=/lexususa/";
         driver.get("https://www.lexus.com/");
-        MJJ7Utility.jsClick(driver,driver.findElement(By.xpath("//a[@href='https://www.pinterest.com/lexususa']")));
+        MJJ7Utility.jsClick(driver, driver.findElement(By.xpath("//a[@href='http://instagram.com/lexususa']")));
         Set<String> windowHandles = driver.getWindowHandles();
         for (String windowHandle : windowHandles) {
-            driver.switchTo().window(windowHandle);}
-        System.out.println(driver.getCurrentUrl());
-        System.out.println(driver.getTitle());
-        Assert.assertEquals(driver.getCurrentUrl(),pineterestUrl);
+            driver.switchTo().window(windowHandle);
+        }
+        Assert.assertEquals(driver.getCurrentUrl(), instgramUrl);
+
+    }
+
+    @Test(priority = 5)
+    public void pineterest123() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        String pineterestUrl = "https://www.pinterest.com/lexususa/";
+        driver.get("https://www.lexus.com/");
+        MJJ7Utility.jsClick(driver, driver.findElement(By.xpath("//a[@href='https://www.pinterest.com/lexususa']")));
+        Set<String> windowHandles = driver.getWindowHandles();
+        for (String windowHandle : windowHandles) {
+            driver.switchTo().window(windowHandle);
+        }
+        Assert.assertEquals(driver.getCurrentUrl(), pineterestUrl);
 //        Assert.assertTrue(driver.findElement(By.xpath("(//div[.='Lexus'])[3]")).isDisplayed());  // this another way to check by seeing if text is displayed
 
     }
-    @Test
-    public void tiktok123(){
+
+    @Test(priority = 6)
+    public void tiktok123() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        String tiktokUrl="https://www.tiktok.com/@lexususa";
+        String tiktokUrl = "https://www.tiktok.com/@lexususa";
         driver.get("https://www.lexus.com/");
-        MJJ7Utility.jsClick(driver,driver.findElement(By.xpath("//a[@href='https://www.tiktok.com/@lexususa']")));
+        MJJ7Utility.jsClick(driver, driver.findElement(By.xpath("//a[@href='https://www.tiktok.com/@lexususa']")));
         Set<String> windowHandles = driver.getWindowHandles();
         for (String windowHandle : windowHandles) {
-            driver.switchTo().window(windowHandle);}
-        System.out.println(driver.getCurrentUrl());
-        System.out.println(driver.getTitle());
-        Assert.assertEquals(driver.getCurrentUrl(),tiktokUrl);
+            driver.switchTo().window(windowHandle);
+        }
+        Assert.assertEquals(driver.getCurrentUrl(), tiktokUrl);
 
     }
-
-
-
-
 
 
 }
