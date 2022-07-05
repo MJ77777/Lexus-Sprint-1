@@ -52,14 +52,14 @@ public class Main1 extends BaseClass {
     @Test(priority = 4)
     public void instgram123() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        String instgramUrl = "https://www.instagram.com/accounts/login/?next=/lexususa/";
+        String instgramUrl = "https://www.instagram.com";
         driver.get("https://www.lexus.com/");
         MJJ7Utility.jsClick(driver, driver.findElement(By.xpath("//a[@href='http://instagram.com/lexususa']")));
         Set<String> windowHandles = driver.getWindowHandles();
         for (String windowHandle : windowHandles) {
             driver.switchTo().window(windowHandle);
         }
-        Assert.assertEquals(driver.getCurrentUrl(), instgramUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(instgramUrl));
 
     }
 
