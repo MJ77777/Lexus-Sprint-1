@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.Set;
 
-public class Main1 extends BaseClass {
+public class Socialmedia extends BaseClass {
 
     @Test(priority = 1)
     public void faceBook123() {
@@ -63,7 +63,7 @@ public class Main1 extends BaseClass {
 
     }
 
-    @Test(priority = 5)
+    @Test(priority = 5,groups = "smoke")
     public void pineterest123() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         String pineterestUrl = "https://www.pinterest.com/lexususa/";
@@ -78,7 +78,7 @@ public class Main1 extends BaseClass {
 
     }
 
-    @Test(priority = 6)
+    @Test(priority = 6,groups = "smoke")
     public void tiktok123() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         String tiktokUrl = "https://www.tiktok.com/@lexususa";

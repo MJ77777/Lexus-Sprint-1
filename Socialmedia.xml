@@ -3,7 +3,7 @@
 <suite name="Social-media">
     <test name="Social Media Testing">
         <classes>
-            <class name="Main1"/>
+            <class name="Socialmedia"/>
 
         </classes>
 
