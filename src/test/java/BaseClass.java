@@ -30,7 +30,7 @@ public class BaseClass {
     }
 
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDownMethod() {
         driver.quit();
     }
