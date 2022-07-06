@@ -7,7 +7,8 @@ import org.testng.annotations.Test;
 
 public class SprintOneA extends BaseClass {
 
-    @Test
+    @Test(groups = "smoke")
+
     public void CurrentOffers() {
         driver.get("https://www.lexus.com/");
 

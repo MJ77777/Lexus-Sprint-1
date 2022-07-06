@@ -11,7 +11,7 @@ import java.time.Duration;
 public class BaseClass {
     public WebDriver driver;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void setupClass() {
         WebDriverManager.chromedriver().setup();
 

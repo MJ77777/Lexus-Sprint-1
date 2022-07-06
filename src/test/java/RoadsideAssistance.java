@@ -7,7 +7,8 @@ import java.time.Duration;
 
 public class RoadsideAssistance extends BaseClass{
 
-  @Test
+  @Test(groups = "smoke")
+
   public void checkRoadsideAssistance() {
     driver.get("https://www.lexus.com");
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));// for explicit wait

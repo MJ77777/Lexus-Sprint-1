@@ -6,7 +6,7 @@ import java.time.Duration;
 
 public class AboutUs extends BaseClass {
 
-  @Test
+  @Test(groups = "smoke")
   public void checkAboutUs() {
     driver.get("https://www.lexus.com");
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));// for explicit wait

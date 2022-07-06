@@ -13,7 +13,8 @@ import static org.apache.hc.core5.util.Timeout.ofSeconds;
 
 public class SprintOne extends BaseClass {
 
-    @Test
+    @Test(groups = "smoke")
+
     public void enterZipCode() {
         driver.get("https://www.lexus.com/");
         driver.findElement(By.xpath("//input[@name=\"zipcode\"]")).sendKeys(Keys.chord("77450"), Keys.ENTER);

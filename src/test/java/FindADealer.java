@@ -9,7 +9,8 @@ import java.util.List;
 
 public class FindADealer extends BaseClass {
 
-  @Test
+  @Test(groups = "smoke")
+
   public void findADealerCheck(){
     String[] dealerSearchTabsValues = {"ZIP CODE", "DEALER NAME", "STATE"};
     driver.get("https://www.lexus.com");

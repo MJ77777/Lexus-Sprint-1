@@ -21,7 +21,7 @@ public class Main1 extends BaseClass {
 
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2,groups = "smoke")
     public void twitter123() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         String twitterUrl = "https://twitter.com/lexus";
@@ -35,7 +35,7 @@ public class Main1 extends BaseClass {
 
     }
 
-    @Test(priority = 3)
+    @Test(priority = 3,groups = "smoke")
     public void youtube123() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         String youtubeUrl = "https://www.youtube.com/Lexus";
@@ -49,7 +49,7 @@ public class Main1 extends BaseClass {
 
     }
 
-    @Test(priority = 4)
+    @Test(priority = 4,groups = "smoke")
     public void instgram123() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         String instgramUrl = "https://www.instagram.com";
