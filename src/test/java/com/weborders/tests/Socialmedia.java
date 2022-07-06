@@ -1,3 +1,6 @@
+package com.weborders.tests;
+
+import com.weborders.utilites.MJJ7Utility;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;

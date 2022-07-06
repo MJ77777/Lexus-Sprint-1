@@ -3,11 +3,11 @@
 <suite name="TBSS1-4">
     <test name="Footer Testing">
         <classes>
-            <class name="AboutUs"></class>
-            <class name="RoadsideAssistance"></class>
-            <class name="BuyOrLeaseQuiz"></class>
-            <class name="FindADealer"></class>
-            <class name="ShopParts"></class>
+            <class name="com.weborders.tests.AboutUs"></class>
+            <class name="com.weborders.tests.RoadsideAssistance"></class>
+            <class name="com.weborders.tests.BuyOrLeaseQuiz"></class>
+            <class name="com.weborders.tests.FindADealer"></class>
+            <class name="com.weborders.tests.ShopParts"></class>
         </classes>
     </test>
 </suite>

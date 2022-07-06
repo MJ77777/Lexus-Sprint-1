@@ -1,3 +1,5 @@
+package com.weborders.utilites;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +17,7 @@ public class UtilityS {
     public static void explicitWaitUntilElementClickable(WebDriver driver, int seconds, WebElement element){
         new WebDriverWait(driver, Duration.ofSeconds(seconds)).until(ExpectedConditions.elementToBeClickable(element));
     }
-    static void jsClick(WebDriver driver, WebElement element) {
+   public static void jsClick(WebDriver driver, WebElement element) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
 }

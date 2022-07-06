@@ -1,3 +1,6 @@
+package com.weborders.tests;
+
+import com.weborders.utilites.UtilityE;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;

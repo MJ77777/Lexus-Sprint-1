@@ -1,3 +1,4 @@
+package com.weborders.utilites;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -7,25 +8,25 @@ import java.util.ArrayList;
 import java.util.List;
 
      public class UtilityAmine {
-        static void jsClick(WebDriver driver, WebElement element) {
+        public static void jsClick(WebDriver driver, WebElement element) {
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
         }
 
-        static void jsSendKeys(WebDriver driver, String cssExpression, String value) {
+       public static void jsSendKeys(WebDriver driver, String cssExpression, String value) {
             ((JavascriptExecutor) driver).executeScript("document.querySelector(\"" + cssExpression + "\").value = \"" + value + "\";");
         }
 
-        static void scroll(WebDriver driver, int x, int y) {
+       public static void scroll(WebDriver driver, int x, int y) {
             ((JavascriptExecutor) driver).executeScript("window.scrollBy(" + x + "," + y + ")");
         }
 
-        static void scrollToElement(WebDriver driver, WebElement element) {
+       public static void scrollToElement(WebDriver driver, WebElement element) {
 
             int y = element.getLocation().getY();
             ((JavascriptExecutor) driver).executeScript("window.scrollBy(0," + y + ")");
         }
 
-        static List<String> getElementsText(WebDriver driver, List<WebElement> list) {
+       public static List<String> getElementsText(WebDriver driver, List<WebElement> list) {
 
             List<String> actual = new ArrayList<>();
 

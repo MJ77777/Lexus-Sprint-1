@@ -5,7 +5,7 @@
     <test name="LexusSprint1">
 
         <classes>
-            <class name = "SprintOneA">
+            <class name = "com.weborders.tests.SprintOneA">
 
             </class>
         </classes>

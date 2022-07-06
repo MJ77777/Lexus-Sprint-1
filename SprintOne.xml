@@ -4,7 +4,7 @@
 <suite name="TBSS1-2 Tests">
     <test name="Sprint1">
         <classes>
-            <class name="SprintOne"/>
+            <class name="com.weborders.tests.SprintOne"/>
         </classes>
     </test>
 </suite>
