@@ -55,6 +55,8 @@ public class topBar extends BaseClass {
             Assert.assertEquals(models.get(i).getText(),carModels[i]);
 
 
+
+
            }}
         @Test(priority = 3)
         public void COUPE () {
