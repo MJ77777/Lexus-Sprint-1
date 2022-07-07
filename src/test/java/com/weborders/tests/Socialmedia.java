@@ -1,6 +1,6 @@
 package com.weborders.tests;
 
-import com.weborders.pages.Socialmediaoptions;
+import com.weborders.pages.HomePage;
 import com.weborders.utilites.ConfigReader;
 import com.weborders.utilites.SeleniumUtils;
 import org.testng.Assert;
@@ -15,7 +15,7 @@ public class Socialmedia extends BaseClass {
     public void faceBook123() {
         String faceURL = "https://www.facebook.com/lexus";
         driver.get(ConfigReader.getProperty("url"));
-        Socialmediaoptions socialMedia = new Socialmediaoptions();
+        HomePage socialMedia = new HomePage();
         SeleniumUtils.jsClick(socialMedia.facebook);
         switchToWindowByUrl(faceURL);
         Assert.assertEquals(driver.getCurrentUrl(), faceURL);
@@ -26,7 +26,7 @@ public class Socialmedia extends BaseClass {
     public void twitter123() {
         String twitUrl = "https://twitter.com/lexus";
         driver.get(ConfigReader.getProperty("url"));
-        Socialmediaoptions socialMedia = new Socialmediaoptions();
+        HomePage socialMedia = new HomePage();
         SeleniumUtils.jsClick(socialMedia.twitter);
         switchToWindowByUrl(twitUrl);
         Assert.assertEquals(driver.getCurrentUrl(), twitUrl);
@@ -37,7 +37,7 @@ public class Socialmedia extends BaseClass {
     public void youtube123() {
         String youUrl = "https://www.youtube.com/Lexus";
         driver.get(ConfigReader.getProperty("url"));
-        Socialmediaoptions socialMedia = new Socialmediaoptions();
+        HomePage socialMedia = new HomePage();
         SeleniumUtils.jsClick(socialMedia.youtube);
         switchToWindowByUrl(youUrl);
         Assert.assertEquals(driver.getCurrentUrl(), youUrl);
@@ -48,7 +48,7 @@ public class Socialmedia extends BaseClass {
     public void instgram123() {
         String instUrl = "instagram.com";
         driver.get(ConfigReader.getProperty("url"));
-        Socialmediaoptions socialMedia = new Socialmediaoptions();
+        HomePage socialMedia = new HomePage();
         SeleniumUtils.jsClick(socialMedia.instagram);
         switchToWindowContainUrl(instUrl);
         Assert.assertTrue(driver.getCurrentUrl().contains(instUrl));
@@ -59,7 +59,7 @@ public class Socialmedia extends BaseClass {
     public void pineterest123() {
         String pineUrl = "https://www.pinterest.com/lexususa/";
         driver.get(ConfigReader.getProperty("url"));
-        Socialmediaoptions socialMedia = new Socialmediaoptions();
+        HomePage socialMedia = new HomePage();
         SeleniumUtils.jsClick(socialMedia.pinterest);
         switchToWindowByUrl(pineUrl);
         Assert.assertEquals(driver.getCurrentUrl(), pineUrl);
@@ -70,7 +70,7 @@ public class Socialmedia extends BaseClass {
     public void tiktok123() {
         String tikUrl = "https://www.tiktok.com/@lexususa";
         driver.get(ConfigReader.getProperty("url"));
-        Socialmediaoptions socialMedia = new Socialmediaoptions();
+        HomePage socialMedia = new HomePage();
         SeleniumUtils.jsClick(socialMedia.tiktok);
         switchToWindowByUrl(tikUrl);
         Assert.assertEquals(driver.getCurrentUrl(), tikUrl);
