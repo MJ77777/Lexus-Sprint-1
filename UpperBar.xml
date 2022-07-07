@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Social-media">
-    <test name="Social Media Testing">
+
+<suite name="UI Tests">
+
+    <test name="Products">
+
         <classes>
-            <class name="com.weborders.tests.Socialmedia"/>
+            <class name="com.weborders.tests.topBar">
 
+            </class>
         </classes>
-
 
     </test>
 

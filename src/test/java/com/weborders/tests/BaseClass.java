@@ -1,3 +1,5 @@
+package com.weborders.tests;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,8 +13,7 @@ import java.time.Duration;
 public class BaseClass {
     public WebDriver driver;
 
-    @BeforeClass
-    public void setupClass() {
+    @BeforeClass(alwaysRun = true)    public void setupClass() {
         WebDriverManager.chromedriver().setup();
 
     }
@@ -30,7 +31,7 @@ public class BaseClass {
     }
 
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDownMethod() {
         driver.quit();
     }
