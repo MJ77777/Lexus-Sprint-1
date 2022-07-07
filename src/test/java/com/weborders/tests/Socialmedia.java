@@ -1,97 +1,79 @@
 package com.weborders.tests;
 
-import com.weborders.utilites.MJJ7Utility;
-import org.openqa.selenium.By;
+import com.weborders.pages.Socialmediaoptions;
+import com.weborders.utilites.ConfigReader;
+import com.weborders.utilites.SeleniumUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-import java.util.Set;
+import static com.weborders.utilites.SeleniumUtils.switchToWindowByUrl;
+import static com.weborders.utilites.SeleniumUtils.switchToWindowContainUrl;
 
 public class Socialmedia extends BaseClass {
 
-    @Test(priority = 1)
+    @Test( groups = "smoke")
     public void faceBook123() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        String facebookUrl = "https://www.facebook.com/lexus";
-        driver.get("https://www.lexus.com/");
-        MJJ7Utility.jsClick(driver, driver.findElement(By.xpath("//a[@href='https://www.facebook.com/lexus']")));
-        Set<String> windowHandles = driver.getWindowHandles();
-        for (String windowHandle : windowHandles) {
-            driver.switchTo().window(windowHandle);
-        }
-        Assert.assertEquals(driver.getCurrentUrl(), facebookUrl);
+        String faceURL = "https://www.facebook.com/lexus";
+        driver.get(ConfigReader.getProperty("url"));
+        Socialmediaoptions socialMedia = new Socialmediaoptions();
+        SeleniumUtils.jsClick(socialMedia.facebook);
+        switchToWindowByUrl(faceURL);
+        Assert.assertEquals(driver.getCurrentUrl(), faceURL);
 
     }
 
-    @Test(priority = 2,groups = "smoke")
+    @Test( groups = "smoke")
     public void twitter123() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        String twitterUrl = "https://twitter.com/lexus";
-        driver.get("https://www.lexus.com/");
-        MJJ7Utility.jsClick(driver, driver.findElement(By.xpath("//a[@href='https://twitter.com/lexus']")));
-        Set<String> windowHandles = driver.getWindowHandles();
-        for (String windowHandle : windowHandles) {
-            driver.switchTo().window(windowHandle);
-        }
-        Assert.assertEquals(driver.getCurrentUrl(), twitterUrl);
+        String twitUrl = "https://twitter.com/lexus";
+        driver.get(ConfigReader.getProperty("url"));
+        Socialmediaoptions socialMedia = new Socialmediaoptions();
+        SeleniumUtils.jsClick(socialMedia.twitter);
+        switchToWindowByUrl(twitUrl);
+        Assert.assertEquals(driver.getCurrentUrl(), twitUrl);
 
     }
 
-    @Test(priority = 3,groups = "smoke")
+    @Test( groups = "smoke")
     public void youtube123() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        String youtubeUrl = "https://www.youtube.com/Lexus";
-        driver.get("https://www.lexus.com/");
-        MJJ7Utility.jsClick(driver, driver.findElement(By.xpath("//a[@href='https://www.youtube.com/Lexus']")));
-        Set<String> windowHandles = driver.getWindowHandles();
-        for (String windowHandle : windowHandles) {
-            driver.switchTo().window(windowHandle);
-        }
-        Assert.assertEquals(driver.getCurrentUrl(), youtubeUrl);
+        String youUrl = "https://www.youtube.com/Lexus";
+        driver.get(ConfigReader.getProperty("url"));
+        Socialmediaoptions socialMedia = new Socialmediaoptions();
+        SeleniumUtils.jsClick(socialMedia.youtube);
+        switchToWindowByUrl(youUrl);
+        Assert.assertEquals(driver.getCurrentUrl(), youUrl);
 
     }
 
-    @Test(priority = 4,groups = "smoke")
+    @Test( groups = "smoke")
     public void instgram123() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        String instgramUrl = "https://www.instagram.com";
-        driver.get("https://www.lexus.com/");
-        MJJ7Utility.jsClick(driver, driver.findElement(By.xpath("//a[@href='http://instagram.com/lexususa']")));
-        Set<String> windowHandles = driver.getWindowHandles();
-        for (String windowHandle : windowHandles) {
-            driver.switchTo().window(windowHandle);
-        }
-        Assert.assertTrue(driver.getCurrentUrl().contains(instgramUrl));
+        String instUrl = "instagram.com";
+        driver.get(ConfigReader.getProperty("url"));
+        Socialmediaoptions socialMedia = new Socialmediaoptions();
+        SeleniumUtils.jsClick(socialMedia.instagram);
+        switchToWindowContainUrl(instUrl);
+        Assert.assertTrue(driver.getCurrentUrl().contains(instUrl));
 
     }
 
-    @Test(priority = 5,groups = "smoke")
+    @Test( groups = "smoke")
     public void pineterest123() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        String pineterestUrl = "https://www.pinterest.com/lexususa/";
-        driver.get("https://www.lexus.com/");
-        MJJ7Utility.jsClick(driver, driver.findElement(By.xpath("//a[@href='https://www.pinterest.com/lexususa']")));
-        Set<String> windowHandles = driver.getWindowHandles();
-        for (String windowHandle : windowHandles) {
-            driver.switchTo().window(windowHandle);
-        }
-        Assert.assertEquals(driver.getCurrentUrl(), pineterestUrl);
-//        Assert.assertTrue(driver.findElement(By.xpath("(//div[.='Lexus'])[3]")).isDisplayed());  // this another way to check by seeing if text is displayed
+        String pineUrl = "https://www.pinterest.com/lexususa/";
+        driver.get(ConfigReader.getProperty("url"));
+        Socialmediaoptions socialMedia = new Socialmediaoptions();
+        SeleniumUtils.jsClick(socialMedia.pinterest);
+        switchToWindowByUrl(pineUrl);
+        Assert.assertEquals(driver.getCurrentUrl(), pineUrl);
 
     }
 
-    @Test(priority = 6,groups = "smoke")
+    @Test( groups = "smoke")
     public void tiktok123() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        String tiktokUrl = "https://www.tiktok.com/@lexususa";
-        driver.get("https://www.lexus.com/");
-        MJJ7Utility.jsClick(driver, driver.findElement(By.xpath("//a[@href='https://www.tiktok.com/@lexususa']")));
-        Set<String> windowHandles = driver.getWindowHandles();
-        for (String windowHandle : windowHandles) {
-            driver.switchTo().window(windowHandle);
-        }
-        Assert.assertEquals(driver.getCurrentUrl(), tiktokUrl);
+        String tikUrl = "https://www.tiktok.com/@lexususa";
+        driver.get(ConfigReader.getProperty("url"));
+        Socialmediaoptions socialMedia = new Socialmediaoptions();
+        SeleniumUtils.jsClick(socialMedia.tiktok);
+        switchToWindowByUrl(tikUrl);
+        Assert.assertEquals(driver.getCurrentUrl(), tikUrl);
 
     }
 

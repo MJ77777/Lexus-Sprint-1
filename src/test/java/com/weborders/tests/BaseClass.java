@@ -1,5 +1,6 @@
 package com.weborders.tests;
 
+import com.weborders.utilites.Driver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,18 +23,16 @@ public class BaseClass {
     @BeforeMethod (alwaysRun = true)
 
     public void setupMethod() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-blink-features=AutomationControlled");
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver = Driver.getDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
-
     }
 
 
     @AfterMethod(alwaysRun = true)
     public void tearDownMethod() {
-        driver.quit();
+        Driver.quitDriver();
+
     }
 
 }
