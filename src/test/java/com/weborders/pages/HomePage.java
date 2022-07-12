@@ -13,6 +13,23 @@ public class HomePage {
 
     }
 
+    @FindBy(xpath = "//div[@id='content-grid']/h3[contains(text(), 'LEXUS OWNERSHIP')]//parent::div")
+    public WebElement lexusOwnershipDiv;
+
+    @FindBy(xpath = "//div[@data-testid='GlobalFooterCategoryLinks']//a[@aria-label='SHOP PARTS']")
+    public WebElement shopParts;
+    @FindBy(xpath = "//a[.=contains(text(), 'ROADSIDE ASSISTANCE')]")
+    public WebElement roadsideAssistance;
+    @FindBy(xpath = "//div[@data-testid='GlobalFooterCategoryLinks']//a[@aria-label='FIND A DEALER']")
+    public WebElement findADealer;
+
+    @FindBy(xpath="//a[@href='/about']")
+    public WebElement aboutUsElement;
+
+    @FindBy(xpath="//a[contains(@href, 'financing_options/buy_or_lease')]")
+    public WebElement buyOrLeaseQuizElement;
+
+
     @FindBy(xpath = "//a[@href='https://www.facebook.com/lexus']")//Facebook
     public WebElement facebook;
 
