@@ -3,7 +3,7 @@
 <suite name="Social-media">
     <test name="Social Media Testing">
         <classes>
-            <class name="com.weborders.tests.Socialmedia"/>
+            <class name="com.weborders.tests.SocialmediaTest"/>
 
         </classes>
 

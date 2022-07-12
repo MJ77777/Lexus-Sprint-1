@@ -30,4 +30,17 @@ public class HomePage {
 
     @FindBy(xpath = "//a[@href='https://www.tiktok.com/@lexususa']")//tiktok
     public WebElement tiktok;
+
+    @FindBy(xpath = "//div//a[@href='/offers']")//view all offers option
+    public WebElement viewAllOffers;
+
+
+
+
+
+
+
+
+
+
 }

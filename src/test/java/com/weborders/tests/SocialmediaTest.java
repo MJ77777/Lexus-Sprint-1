@@ -4,14 +4,15 @@ import com.weborders.pages.HomePage;
 import com.weborders.utilites.ConfigReader;
 import com.weborders.utilites.SeleniumUtils;
 import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.Test;
 
 import static com.weborders.utilites.SeleniumUtils.switchToWindowByUrl;
 import static com.weborders.utilites.SeleniumUtils.switchToWindowContainUrl;
 
-public class Socialmedia extends BaseClass {
+public class SocialmediaTest extends BaseClass {
 
-    @Test( groups = "smoke")
+    @Test(groups = "smoke")
     public void faceBook123() {
         String faceURL = "https://www.facebook.com/lexus";
         driver.get(ConfigReader.getProperty("url"));
@@ -22,7 +23,7 @@ public class Socialmedia extends BaseClass {
 
     }
 
-    @Test( groups = "smoke")
+    @Test(groups = "smoke")
     public void twitter123() {
         String twitUrl = "https://twitter.com/lexus";
         driver.get(ConfigReader.getProperty("url"));
@@ -30,10 +31,10 @@ public class Socialmedia extends BaseClass {
         SeleniumUtils.jsClick(socialMedia.twitter);
         switchToWindowByUrl(twitUrl);
         Assert.assertEquals(driver.getCurrentUrl(), twitUrl);
-
+//throw new SkipException("2");
     }
 
-    @Test( groups = "smoke")
+    @Test(groups = "smoke")
     public void youtube123() {
         String youUrl = "https://www.youtube.com/Lexus";
         driver.get(ConfigReader.getProperty("url"));
@@ -44,7 +45,7 @@ public class Socialmedia extends BaseClass {
 
     }
 
-    @Test( groups = "smoke")
+    @Test(groups = "smoke")
     public void instgram123() {
         String instUrl = "instagram.com";
         driver.get(ConfigReader.getProperty("url"));
@@ -55,7 +56,7 @@ public class Socialmedia extends BaseClass {
 
     }
 
-    @Test( groups = "smoke")
+    @Test(groups = "smoke")
     public void pineterest123() {
         String pineUrl = "https://www.pinterest.com/lexususa/";
         driver.get(ConfigReader.getProperty("url"));
@@ -66,7 +67,7 @@ public class Socialmedia extends BaseClass {
 
     }
 
-    @Test( groups = "smoke")
+    @Test(groups = "smoke")
     public void tiktok123() {
         String tikUrl = "https://www.tiktok.com/@lexususa";
         driver.get(ConfigReader.getProperty("url"));
