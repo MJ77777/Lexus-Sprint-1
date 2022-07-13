@@ -10,6 +10,6 @@ public class ModelLCPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "//a[@href=\"/content/dam/lexus/documents/brochures/special-edition/2022/2022_LC_500_Inspiration_Series.pdf\"]")
+    @FindBy(xpath = "//a[@href='/content/dam/lexus/documents/brochures/special-edition/2022/2022_LC_500_Inspiration_Series.pdf']")
     public WebElement pressRelease;
 }
