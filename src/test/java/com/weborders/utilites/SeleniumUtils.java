@@ -189,17 +189,10 @@ public class SeleniumUtils {
         ((JavascriptExecutor)Driver.getDriver()).executeScript("window.scrollBy(0,"+ y +")");
     }
 
+
     public static String getColorHexFromRGBA(String rgba){
         return Color.fromString(rgba).asHex();
     }
-
-
-
-
-
-
-
-
 
 
 }

@@ -53,6 +53,11 @@ public class HomePage {
     @FindBy(xpath = "//a[@href='https://www.tiktok.com/@lexususa']")//tiktok
     public WebElement tiktok;
 
+    @FindBy(xpath ="//a[@href='/models/ES']")//EXPLORE
+    public WebElement explore;
+
+    @FindBy(xpath ="(//a[@data-testid='LexusButton'])[5]")//Build
+    public WebElement build;
 
     @FindBy(xpath = "//input[@name=\"zipcode\"]") // enterZipCode - Sabina
     public WebElement enterZipCode;
@@ -65,7 +70,6 @@ public class HomePage {
 
     @FindBy(xpath = ("//*[@id=\"quick-links\"]/div/a[3]")) //offers - Sabina
     public WebElement offers;
-
 
     @FindBy(xpath = "//a[@href='/models/LC-convertible?link[model_overlay_lcc_inspiration_series][SHOW_PAGE]=true']")
     public WebElement LCConvertable; // - Sabina
@@ -84,6 +88,7 @@ public class HomePage {
 
     @FindBy(xpath = "//div//a[@href='/offers']")//view all offers option
     public WebElement viewAllOffers;
+
 
 
 }
