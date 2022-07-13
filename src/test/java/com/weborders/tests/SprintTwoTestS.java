@@ -77,14 +77,12 @@ public class SprintTwoTestS extends BaseClass {
         HomePage homePage = new HomePage();
         SeleniumUtils.scrollToElement(homePage.GXBlack);
         SeleniumUtils.jsClick(homePage.GXBlack);
-       // Thread.sleep(5000);
         ModelGXPage modelGXPage = new ModelGXPage();
         Thread.sleep(5000);
        // SeleniumUtils.scrollToElement(modelGXPage.pressReleaseGX);
         // SeleniumUtils.scroll(0,4000);
          Actions actions = new Actions(driver);
          actions.scrollByAmount(0,5000);
-       // Thread.sleep(7000);
         SeleniumUtils.getScreenshot("INCLUDED FEATURES"); //would not catch features
         Assert.assertTrue(driver.getPageSource().contains("INCLUDED FEATURES"));
     }
