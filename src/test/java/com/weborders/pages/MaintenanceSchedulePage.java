@@ -21,6 +21,16 @@ public class MaintenanceSchedulePage {
     @FindBy(xpath = "//select[@id='yr-selector']")
     public WebElement yearSelect;
 
+    @FindBy(xpath = "//input[@value='SUBMIT']")
+    public WebElement submitButton;
+
+    @FindBy(xpath = "//p[@class='main-error']")
+    public WebElement errorResultMessage;
+
+    @FindBy(xpath = "//label[contains(text(), 'Model / Year')]//following-sibling::span")
+    public WebElement foundModelYearCombination;
+
+
 
     public void vehicleSelectValue(String vehicle){
         new Select(vehicleSelect).selectByValue(vehicle);

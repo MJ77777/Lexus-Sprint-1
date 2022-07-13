@@ -7,27 +7,20 @@ import com.weborders.pages.ShopPartsPage;
 import com.weborders.utilites.ConfigReader;
 import com.weborders.utilites.SeleniumUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.List;
 
-public class FooterLinks extends BaseClass {
+public class FooterLinksTests extends BaseClass {
 
   @Test(groups = "smoke")
-  public void checkAboutUs() {
+  public void checkAboutUs() throws InterruptedException {
     driver.get(ConfigReader.getProperty("url"));
-    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));// for explicit wait
-    SeleniumUtils.waitForVisibility(By.xpath("//a[@href='/about']"), 20);
     HomePage home = new HomePage();
-    SeleniumUtils.scrollToElement(home.aboutUsElement);
-    SeleniumUtils.waitForClickablility(By.xpath("//a[@href='/about']"), 20);
-    home.aboutUsElement.click();
+    SeleniumUtils.jsClick(home.aboutUsElement);
 
-    SeleniumUtils.waitForVisibility(By.xpath("//a[@href='/about/manufacturing']"), 20);
+    Thread.sleep(1500);
     String pageContent = driver.getPageSource();
     String currentURL = driver.getCurrentUrl();
     String currentTitle = driver.getTitle();
@@ -111,17 +104,13 @@ public class FooterLinks extends BaseClass {
   }
 
   @Test
-  public void shopPartsCheck(){
+  public void shopPartsCheck() throws InterruptedException {
     driver.get(ConfigReader.getProperty("url"));
     String searchInputPlaceholder = "Search by Keywords, Part Numbers or Full VIN";
-    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));// for explicit wait
-    SeleniumUtils.waitForVisibility(By.xpath("//div[@data-testid='GlobalFooterCategoryLinks']//a[@aria-label='SHOP PARTS']"), 20);
     HomePage homePage = new HomePage();
-    SeleniumUtils.scrollToElement(homePage.shopParts);
-    SeleniumUtils.waitForVisibility(By.xpath("//div[@data-testid='GlobalFooterCategoryLinks']//a[@aria-label='SHOP PARTS']"), 20);
-    homePage.shopParts.click();
+    SeleniumUtils.jsClick(homePage.shopParts);
 
-    SeleniumUtils.waitForVisibility(By.xpath("//input[@id='SearchInput']"), 20);
+    Thread.sleep(1000);
     String currentURL = driver.getCurrentUrl();
     String currentTitle = driver.getTitle();
     Assert.assertTrue(currentURL.contains("https://parts.lexus.com"));

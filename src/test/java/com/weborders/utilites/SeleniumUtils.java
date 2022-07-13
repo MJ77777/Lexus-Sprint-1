@@ -75,6 +75,11 @@ public class SeleniumUtils {
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOfElementLocated(locator)));
     }
 
+    public static void waitForVisibilityByMultiple(By locator1, By locator2, int seconds) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(seconds));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.or(ExpectedConditions.visibilityOfElementLocated(locator1), ExpectedConditions.visibilityOfElementLocated(locator2))));
+    }
+
     public static void waitForVisibilityOfMultipleElementsAsList(List<WebElement> list, int seconds) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOfAllElements(list)));

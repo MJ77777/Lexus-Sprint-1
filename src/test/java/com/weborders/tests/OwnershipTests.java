@@ -3,16 +3,10 @@ package com.weborders.tests;
 import com.weborders.pages.DriversPage;
 import com.weborders.pages.HomePage;
 import com.weborders.pages.MaintenanceSchedulePage;
-import com.weborders.utilites.CSVReader;
-import com.weborders.utilites.ConfigReader;
-import com.weborders.utilites.Driver;
-import com.weborders.utilites.SeleniumUtils;
+import com.weborders.utilites.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.Color;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -28,7 +22,7 @@ public class OwnershipTests extends BaseClass{
     Assert.assertEquals(home.lexusOwnershipDivs.size(), 4);
   }
 
-  @Test(groups = {"flaky"})
+  @Test(priority = 1, groups = {"flaky"})
   public void hoverColorTest() {
     String beforeHoverColorOriginal = "rgba(0, 0, 0, 1)";
     String afterHoverColorOriginal = "rgba(255, 255, 255, 1)";
@@ -47,7 +41,7 @@ public class OwnershipTests extends BaseClass{
 
   }
 
-  @Test
+  @Test(priority = 2)
   public void navigateToDriverLexus(){
     String urlContains = "https://drivers.lexus.com/lexusdrivers";
     driver.get(ConfigReader.getProperty("url"));
@@ -59,7 +53,7 @@ public class OwnershipTests extends BaseClass{
     Assert.assertTrue(driver.getCurrentUrl().contains(urlContains));
   }
 
-  @Test
+  @Test(priority = 3)
   public void clickMaintenanceScheduleOnDriverLexus(){
     String urlContains = "https://drivers.lexus.com/lexusdrivers/service/maintenance-schedules";
     String selectVehicleText = "Select A Vehicle";
@@ -82,8 +76,8 @@ public class OwnershipTests extends BaseClass{
 
   }
 
-  @Test
-  public void scheduleMaintenanceOnDriverLexus(){
+  @Test(priority = 4, dataProvider = "carModelsWithYears", dataProviderClass = DataProviderCollectionE.class)
+  public void scheduleMaintenanceOnDriverLexus(String car, String year) throws InterruptedException {
     // create a csv file from the dropdown menu options, since the data cannot be obtained
     /*
       let rows = [];
@@ -112,6 +106,7 @@ public class OwnershipTests extends BaseClass{
       createCSVAndDownload();
      */
 
+    String noMaintenanceFoundText = "THERE ARE CURRENTLY NO MAINTENANCE DETAIL AVAILABLE FOR SELECTED VEHICLE.";
     driver.get(ConfigReader.getProperty("url"));
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));// for explicit wait
     SeleniumUtils.waitForClickablility(By.xpath("//div[@id='content-grid']/div//h3[contains(text(), 'OWNER RESOURCES AND BENEFITS')]/following-sibling::div/a"), 20);
@@ -121,13 +116,28 @@ public class OwnershipTests extends BaseClass{
     SeleniumUtils.waitForVisibility(By.xpath("//a[@aria-label='Maintenance Schedule']"), 20);
     SeleniumUtils.waitForClickablility(By.xpath("//a[@aria-label='Maintenance Schedule']"), 20);
     DriversPage driversPage = new DriversPage();
-    driversPage.maintenanceScheduleButton.click();
+    SeleniumUtils.jsClick(driversPage.maintenanceScheduleButton);
     SeleniumUtils.waitForVisibility(By.xpath("//a[@id='nav-bar-selectVehicle-tab']"), 20);
     MaintenanceSchedulePage schedulePage = new MaintenanceSchedulePage();
+    schedulePage.navBarSelectVehicle.click();
 
-    Object[][] objects = CSVReader.readFromCSV("CarModelsWithYears.csv");
-    System.out.println(objects[0][0]);
-    System.out.println(objects[0][1]);
+    schedulePage.vehicleSelect.click();
+    schedulePage.vehicleSelectValue(car.replace(" ", ""));
+    Thread.sleep(1000);
+    schedulePage.yearSelect.click();
+    Thread.sleep(1000);
+    schedulePage.yearSelectValue(year);
 
+    schedulePage.submitButton.click();
+
+    SeleniumUtils.waitForVisibilityByMultiple(By.xpath("//p[@class='main-error']"), By.xpath("//label[contains(text(), 'Model / Year')]//following-sibling::span"), 20);
+
+    try{
+      Assert.assertEquals(schedulePage.errorResultMessage.getText(), noMaintenanceFoundText);
+    } catch (Exception e){
+      String foundCombination = car.substring(0, 2) + " " + car.substring(2).toUpperCase() + " " + year;
+      Assert.assertEquals(schedulePage.foundModelYearCombination.getText().toUpperCase(), foundCombination.replace("  ", " ").trim());
+    }
   }
+
 }

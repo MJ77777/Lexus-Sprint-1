@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="TBSS1-4">
-    <test name="Footer Testing">
+<suite name="TBSS1-45">
+    <test name="Ownership Testing Testing">
         <classes>
             <class name="com.weborders.tests.OwnershipTests"/>
         </classes>
