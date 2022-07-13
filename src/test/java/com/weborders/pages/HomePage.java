@@ -30,4 +30,10 @@ public class HomePage {
 
     @FindBy(xpath = "//a[@href='https://www.tiktok.com/@lexususa']")//tiktok
     public WebElement tiktok;
+
+    @FindBy(xpath ="//a[@href='/models/ES']")//EXPLORE
+    public WebElement explore;
+
+    @FindBy(xpath ="(//a[@data-testid='LexusButton'])[5]")//Build
+    public WebElement build;
 }
