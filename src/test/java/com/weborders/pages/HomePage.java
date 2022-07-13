@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class HomePage {
 
     public HomePage() {
@@ -13,8 +15,11 @@ public class HomePage {
 
     }
 
-    @FindBy(xpath = "//div[@id='content-grid']/h3[contains(text(), 'LEXUS OWNERSHIP')]//parent::div")
-    public WebElement lexusOwnershipDiv;
+    @FindBy(xpath = "//div[@id='content-grid']/h3[contains(text(), 'LEXUS OWNERSHIP')]/following-sibling::div/div")
+    public List<WebElement> lexusOwnershipDivs;
+
+    @FindBy(xpath = "//div[@id='content-grid']/div//h3[contains(text(), 'OWNER RESOURCES AND BENEFITS')]/following-sibling::div/a")
+    public WebElement ownerResourcesLearnMoreButton;
 
     @FindBy(xpath = "//div[@data-testid='GlobalFooterCategoryLinks']//a[@aria-label='SHOP PARTS']")
     public WebElement shopParts;

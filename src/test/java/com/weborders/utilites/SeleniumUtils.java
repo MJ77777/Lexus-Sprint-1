@@ -3,6 +3,7 @@ package com.weborders.utilites;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.*;
 
 import java.io.File;
@@ -183,7 +184,9 @@ public class SeleniumUtils {
         ((JavascriptExecutor)Driver.getDriver()).executeScript("window.scrollBy(0,"+ y +")");
     }
 
-
+    public static String getColorHexFromRGBA(String rgba){
+        return Color.fromString(rgba).asHex();
+    }
 
 
 
