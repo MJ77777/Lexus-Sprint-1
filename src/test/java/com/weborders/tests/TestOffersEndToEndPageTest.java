@@ -13,7 +13,7 @@ public class TestOffersEndToEndPageTest extends BaseClass {
 //mvn test -Drunner=Smoke.xml
 
     @Test
-    public void urlNotBroken() throws InterruptedException {
+    public void endToEndOffersPage() throws InterruptedException {
         Faker faker=new Faker();
         driver.get(ConfigReader.getProperty("url"));
         HomePage home = new HomePage();

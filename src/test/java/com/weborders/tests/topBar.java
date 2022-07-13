@@ -49,7 +49,7 @@ public class topBar extends BaseClass {
 
             List<WebElement> models = driver.findElements(By.xpath("//h2[@data-testid='Typography']"));
             for(int i=0;i<models.size();i++){
-            Assert.assertEquals(models.get(i).getText(),carModels[i]);
+            Assert.assertTrue(models.get(i).getText().contains(carModels[i]));
 
 
 

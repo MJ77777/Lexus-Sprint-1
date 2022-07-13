@@ -53,7 +53,7 @@ public abstract class BaseClass {
 
 
         driver = Driver.getDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
         logger = extentReports.createTest(method.getName());  // create the logger object
 

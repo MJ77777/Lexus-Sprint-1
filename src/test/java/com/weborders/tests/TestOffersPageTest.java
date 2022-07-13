@@ -66,7 +66,7 @@ public class TestOffersPageTest extends BaseClass {
         String offerUrl = "https://www.lexus.com/offers";
         HomePage home = new HomePage();
         Thread.sleep(2000);
-        home.viewAllOffers.click();
+        SeleniumUtils.jsClick(home.viewAllOffers);
         Assert.assertEquals(driver.getCurrentUrl(), offerUrl);
 
     }
