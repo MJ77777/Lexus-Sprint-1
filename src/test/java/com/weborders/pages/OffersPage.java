@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Offers {
-    public Offers() {
+public class OffersPage {
+    public OffersPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
         @FindBy(xpath = "//div[.='1/6']")//verify offers number
@@ -18,7 +18,7 @@ public class Offers {
         @FindBy(xpath = "//button[contains(text(),'FINANCE')]")//finance button
         public WebElement financeOption;
 
-        @FindBy(xpath = "//label[.='ALL SEDANS']")//all sedan button
+        @FindBy(xpath = "//span[@size='15']")//all sedan button
         public WebElement allSedansOptions;
 
        @FindBy(xpath = "//input[@placeholder='Enter Zip']")//enter zip
@@ -29,6 +29,21 @@ public class Offers {
 
     @FindBy(xpath = "//div[@data-testid='BreadCrumbs']//button[@data-testid='LexusButton']")//appliedFilterFinance
     public WebElement appliedFilterFinance;
+
+    @FindBy(xpath = "//span[.='PERFORMANCE']")//appliedFilterFinance
+    public WebElement performanceOption;
+
+    @FindBy(xpath = "//span[@size='15']")//all sedan button
+    public WebElement allPerformance;
+
+    @FindBy(xpath = "//button[.='CONTACT DEALER']")//all sedan button
+    public WebElement contactDealer;
+
+    @FindBy(xpath = "//button[.='SEND INFO']")//all sedan button
+    public WebElement sendInfo;
+
+    @FindBy(xpath = "//input[@name='firstName']")//all sedan button
+    public WebElement firstName;
 
 
 

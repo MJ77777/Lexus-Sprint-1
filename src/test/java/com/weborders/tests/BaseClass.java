@@ -7,7 +7,6 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.weborders.utilites.ConfigReader;
 import com.weborders.utilites.Driver;
 import com.weborders.utilites.SeleniumUtils;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -57,6 +56,7 @@ public abstract class BaseClass {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         logger = extentReports.createTest(method.getName());  // create the logger object
+
     }
 
 
