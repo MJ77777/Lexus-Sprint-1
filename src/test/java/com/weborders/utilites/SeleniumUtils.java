@@ -3,6 +3,7 @@ package com.weborders.utilites;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.*;
 
 import java.io.File;
@@ -72,6 +73,11 @@ public class SeleniumUtils {
     public static void waitForVisibility(By locator, int seconds) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOfElementLocated(locator)));
+    }
+
+    public static void waitForVisibilityByMultiple(By locator1, By locator2, int seconds) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(seconds));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.or(ExpectedConditions.visibilityOfElementLocated(locator1), ExpectedConditions.visibilityOfElementLocated(locator2))));
     }
 
     public static void waitForVisibilityOfMultipleElementsAsList(List<WebElement> list, int seconds) {
@@ -148,7 +154,7 @@ public class SeleniumUtils {
         File source = ts.getScreenshotAs(OutputType.FILE);
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
         String fileName = name + date + ".png";
-        String target = System.getProperty("user.dir") + "/test-output/extentReports/" + fileName;
+        String target = System.getProperty("user.dir") + "/target/extentReports/" + fileName;
         File finalDestination = new File(target);
         try {
             FileUtils.copyFile(source, finalDestination);
@@ -181,6 +187,11 @@ public class SeleniumUtils {
 
         int y = element.getLocation().getY();
         ((JavascriptExecutor)Driver.getDriver()).executeScript("window.scrollBy(0,"+ y +")");
+    }
+
+
+    public static String getColorHexFromRGBA(String rgba){
+        return Color.fromString(rgba).asHex();
     }
 
 
