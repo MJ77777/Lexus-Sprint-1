@@ -7,7 +7,7 @@ import java.util.Properties;
 public class ConfigReader {
 
     private static Properties properties;
-    private final static String PATH ="config.properties";
+    private final static String PATH ="Config.properties";
 
     static {
         FileInputStream fis = null;
