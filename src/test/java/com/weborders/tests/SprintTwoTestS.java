@@ -18,15 +18,12 @@ public class SprintTwoTestS extends BaseClass {
     public void pressRelease() throws InterruptedException {
         driver.get(ConfigReader.getProperty("url"));
         HomePage homePage = new HomePage();
+        Thread.sleep(5000);
         SeleniumUtils.scrollToElement(homePage.LCConvertable);
-        SeleniumUtils.jsClick(homePage.LCConvertable);
-        SeleniumUtils.waitForVisibility(By.xpath("//a[@href='/content/dam/lexus/documents/brochures/special-edition/2022/2022_LC_500_Inspiration_Series.pdf']"), 5);
-        ModelLCPage modelLCPage = new ModelLCPage();
-        SeleniumUtils.scrollToElement(modelLCPage.pressRelease);
         Thread.sleep(3000);
-        SeleniumUtils.jsClick(modelLCPage.pressRelease);
-        SeleniumUtils.switchToWindowByUrl("https://www.lexus.com/content/dam/lexus/documents/brochures/special-edition/2022/2022_LC_500_Inspiration_Series.pdf");
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.lexus.com/content/dam/lexus/documents/brochures/special-edition/2022/2022_LC_500_Inspiration_Series.pdf");
+        SeleniumUtils.jsClick(homePage.LCConvertable);
+        Thread.sleep(1000);
+        Assert.assertTrue(driver.getCurrentUrl().contains("https://www.lexus.com/models/LC-convertible"));
     }
 
     @Test
@@ -57,35 +54,25 @@ public class SprintTwoTestS extends BaseClass {
     }
 
     @Test
-    public void buildOptionsList() {
-        String[] bespokeBuildOptions = {"WHEEL", "SPOILER", "INTERIOR", "ROOF", "CROME ACCENTS", "ADDITIONAL OPTIONS"};
+    public void checkUrlOfNewRX() {
         driver.get(ConfigReader.getProperty("url"));
         HomePage homePage = new HomePage();
-        SeleniumUtils.scrollToElement(homePage.LCBespoke);
-        SeleniumUtils.jsClick(homePage.LCBespoke);
-        ModelLCBPage modelLCBPage = new ModelLCBPage();
-        // SeleniumUtils.scrollToElement((WebElement) modelLCBPage.modelOptions);
-        List<WebElement> options = driver.findElements(By.xpath("//div[@data-testid='DealerSearchTabs']//ul/li"));
-        for (int i = 0; i < options.size(); i++) {
-            Assert.assertEquals(options.get(i).getText(), bespokeBuildOptions[i]);
-
+        SeleniumUtils.scrollToElement(homePage.newrx);
+        SeleniumUtils.jsClick(homePage.newrx);
+        Assert.assertEquals(driver.getCurrentUrl(),"https://www.lexus.com/newRX");
         }
-    }
 
     @Test
     public void showIncludedFeatures() throws InterruptedException {
         driver.get(ConfigReader.getProperty("url"));
         HomePage homePage = new HomePage();
-        SeleniumUtils.scrollToElement(homePage.GXBlack);
-        SeleniumUtils.jsClick(homePage.GXBlack);
-        ModelGXPage modelGXPage = new ModelGXPage();
-        Thread.sleep(5000);
-       // SeleniumUtils.scrollToElement(modelGXPage.pressReleaseGX);
-        // SeleniumUtils.scroll(0,4000);
-         Actions actions = new Actions(driver);
-         actions.scrollByAmount(0,5000);
-        SeleniumUtils.getScreenshot("INCLUDED FEATURES"); //would not catch features
-        Assert.assertTrue(driver.getPageSource().contains("INCLUDED FEATURES"));
+        SeleniumUtils.scrollToElement(homePage.rz450);
+        SeleniumUtils.jsClick(homePage.rz450);
+        Thread.sleep(3000);
+        ModelRZPage modelRZPage = new ModelRZPage();
+        SeleniumUtils.jsClick(modelRZPage.preOrderGuide);
+        SeleniumUtils.switchToWindowByUrl("https://www.lexus.com/content/dam/lexus/documents/brochures/models/2023/MY23-Lexus-RZ-PreBrochure.pdf");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.lexus.com/content/dam/lexus/documents/brochures/models/2023/MY23-Lexus-RZ-PreBrochure.pdf");
     }
 
     @Test
@@ -93,9 +80,10 @@ public class SprintTwoTestS extends BaseClass {
         driver.get(ConfigReader.getProperty("url"));
         HomePage homePage = new HomePage();
         SeleniumUtils.scrollToElement(homePage.LEM);
-        Thread.sleep(5000);
-        SeleniumUtils.getScreenshot("LIMITED EDITION MODELS");
-        Assert.assertTrue(driver.getPageSource().contains("LIMITED EDITION MODELS"));
-        }
+        Thread.sleep(3000);
+        SeleniumUtils.getScreenshot("FUTURE AND LIMITED EDITION VEHICLES");
+        Assert.assertTrue(driver.getPageSource().contains("FUTURE AND LIMITED EDITION VEHICLES"));
+
+    }
     }
 

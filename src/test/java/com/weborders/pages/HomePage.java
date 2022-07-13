@@ -67,19 +67,19 @@ public class HomePage {
     public WebElement offers;
 
 
-    @FindBy(xpath = "(//a[@href='/models/LC-convertible?link[model_overlay_lcc_inspiration_series][SHOW_PAGE]=true'])[1]")
+    @FindBy(xpath = "//a[@href='/models/LC-convertible?link[model_overlay_lcc_inspiration_series][SHOW_PAGE]=true']")
     public WebElement LCConvertable; // - Sabina
 
-    @FindBy(xpath = "(//a[@href='models/RCF'])[1]")
+    @FindBy(xpath = "//a[@href='models/RCF']")
     public WebElement RCFFuji; // - Sabina
 
-    @FindBy(xpath = "//a[@href='/models/LC.html?link[model_overlay_bespoke][SHOW_PAGE]=true']")
-    public WebElement LCBespoke; // - Sabina
+    @FindBy(xpath = "//a[@href='/newrx']")
+    public WebElement newrx; // - Sabina
 
-    @FindBy(xpath = "//a[@href='/models/GX?link[model_overlay_special_edition][SHOW_PAGE]=true']")
-    public WebElement GXBlack; // - Sabina
+    @FindBy(xpath = "//a[@href=\'/future/rz\']")
+    public WebElement rz450; // - Sabina
 
-    @FindBy(xpath = "//*[@id=\"content-grid\"]/h3")
+    @FindBy(xpath = "//div[@id=\'content-grid\']")
     public WebElement LEM; // - Sabina
 
     @FindBy(xpath = "//div//a[@href='/offers']")//view all offers option
