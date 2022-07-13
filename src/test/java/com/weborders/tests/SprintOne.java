@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-import static org.apache.hc.core5.util.Timeout.ofSeconds;
 
 public class SprintOne extends BaseClass {
 
