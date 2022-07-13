@@ -67,10 +67,10 @@ public class HomePage {
     public WebElement offers;
 
 
-    @FindBy(xpath = "//a[@href=\"/models/LC-convertible?link[model_overlay_lcc_inspiration_series][SHOW_PAGE]=true\"]")
+    @FindBy(xpath = "(//a[@href='/models/LC-convertible?link[model_overlay_lcc_inspiration_series][SHOW_PAGE]=true'])[1]")
     public WebElement LCConvertable; // - Sabina
 
-    @FindBy(xpath = "//a[@href=\"/models/RCF\"]")
+    @FindBy(xpath = "(//a[@href='models/RCF'])[1]")
     public WebElement RCFFuji; // - Sabina
 
     @FindBy(xpath = "//a[@href='/models/LC.html?link[model_overlay_bespoke][SHOW_PAGE]=true']")

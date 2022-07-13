@@ -20,6 +20,7 @@ public class SprintTwoTestS extends BaseClass {
         HomePage homePage = new HomePage();
         SeleniumUtils.scrollToElement(homePage.LCConvertable);
         SeleniumUtils.jsClick(homePage.LCConvertable);
+        SeleniumUtils.waitForVisibility(By.xpath("//a[@href='/content/dam/lexus/documents/brochures/special-edition/2022/2022_LC_500_Inspiration_Series.pdf']"), 5);
         ModelLCPage modelLCPage = new ModelLCPage();
         SeleniumUtils.scrollToElement(modelLCPage.pressRelease);
         Thread.sleep(3000);
