@@ -23,12 +23,13 @@ public class OwnershipTests extends BaseClass{
   }
 
   @Test(priority = 1, groups = {"flaky"})
-  public void hoverColorTest() {
+  public void hoverColorTest() throws InterruptedException {
     String beforeHoverColorOriginal = "rgba(0, 0, 0, 1)";
     String afterHoverColorOriginal = "rgba(255, 255, 255, 1)";
     driver.get(ConfigReader.getProperty("url"));
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));// for explicit wait
     SeleniumUtils.waitForVisibility(By.xpath("//div[@id='content-grid']/h3[contains(text(), 'LEXUS OWNERSHIP')]//parent::div"), 20);
+    Thread.sleep(2000);
     HomePage home = new HomePage();
     WebElement ownerResources = home.lexusOwnershipDivs.get(2);
     String beforeHoverColor = ownerResources.findElement(By.xpath(".//div//a")).getCssValue("color");// get the element's color value before hover

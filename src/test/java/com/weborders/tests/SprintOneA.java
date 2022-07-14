@@ -19,8 +19,9 @@ public class SprintOneA extends BaseClass {
     }
     @Test
 
-    public void Explore(){
+    public void Explore() throws InterruptedException {
         driver.get("https://www.lexus.com/");
+        Thread.sleep(3000);
         UtilityAmine.jsClick(driver, driver.findElement(By.xpath("//a[@href='/future/RZ' ]")));
 
         Assert.assertEquals(driver.getCurrentUrl(),"https://www.lexus.com/future/RZ");
@@ -28,8 +29,9 @@ public class SprintOneA extends BaseClass {
     }
 
     @Test
-    public void LearnMore() {
+    public void LearnMore() throws InterruptedException {
         driver.get("https://www.lexus.com/");
+        Thread.sleep(3000);
         UtilityAmine.jsClick(driver, driver.findElement(By.xpath("//a[@href='/newrx']")));
 
         Assert.assertEquals(driver.getCurrentUrl(),"https://www.lexus.com/newRX");

@@ -83,7 +83,7 @@ public class FooterLinksTests extends BaseClass {
   }
 
   @Test(groups = "smoke")
-  public void checkRoadsideAssistance() {
+  public void checkRoadsideAssistance() throws InterruptedException {
     driver.get(ConfigReader.getProperty("url"));
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));// for explicit wait
     SeleniumUtils.waitForVisibility(By.xpath("//a[.=contains(text(), 'ROADSIDE ASSISTANCE')]"), 20);
@@ -95,6 +95,7 @@ public class FooterLinksTests extends BaseClass {
     SeleniumUtils.switchToWindow("What is Lexus Roadside Assistance?");
 
     SeleniumUtils.waitForVisibility(By.xpath("//h1[contains(text(), 'Lexus Roadside Assistance')]"), 20);
+    Thread.sleep(2000);
     String currentURL = driver.getCurrentUrl();
     String currentTitle = driver.getTitle();
     Assert.assertTrue(currentURL.contains("What-is-Lexus-Roadsid"));
@@ -108,6 +109,7 @@ public class FooterLinksTests extends BaseClass {
     driver.get(ConfigReader.getProperty("url"));
     String searchInputPlaceholder = "Search by Keywords, Part Numbers or Full VIN";
     HomePage homePage = new HomePage();
+    Thread.sleep(2000);
     SeleniumUtils.jsClick(homePage.shopParts);
 
     Thread.sleep(1000);
