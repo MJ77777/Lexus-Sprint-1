@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="TBSS1-76" parallel="classes" thread-count="10">
+    <test name="World Race Test">
+        <classes>
+            <class name="com.weborders.tests.WorldRacesTests" />
+        </classes>
+    </test>
+</suite>
