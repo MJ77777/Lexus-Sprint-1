@@ -3,7 +3,14 @@ package com.weborders.tests;
 import com.weborders.pages.*;
 import com.weborders.utilites.ConfigReader;
 import com.weborders.utilites.DataProviderCollection;
+import com.weborders.utilites.Driver;
 import com.weborders.utilites.SeleniumUtils;
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -46,10 +53,19 @@ public class WorldRacesTests extends BaseClass {
 
     @Test(priority = 2)
     public void checkPreviousRaces(){
-        String secondLastRaceTitle = "MICHELIN GT CHALLENGE AT VIRGINIA";
-        String secondLastRaceTrackDetail = "3.27 MILES / 17 TURNS";
-        String secondLastRaceDate = "8.28.2022/2:10";
-        String secondLastRaceLocation = "Virginia International Raceway,Alton, VA";
+        String raceTitle = "MOTUL PETIT LE MANS";
+        String raceTrackDetail = "2.54 MILES / 12 TURNS";
+        String raceData = "10.1.2022/12:10";
+        String raceLocation = "Michelin Raceway Road Atlanta,Braselton, GA";
+        int nextArrowNTimes = 4;
+
+        if(SeleniumUtils.isHeadless()){
+            raceTitle = "MICHELIN GT CHALLENGE AT VIRGINIA";
+            raceTrackDetail = "3.27 MILES / 17 TURNS";
+            raceData = "8.28.2022/2:10";
+            raceLocation = "Virginia International Raceway,Alton, VA";
+            nextArrowNTimes = 3;
+        }
 
         driver.get(ConfigReader.getProperty("url"));
         HomePage.waitForMotorSportsElementVisibility();
@@ -61,12 +77,12 @@ public class WorldRacesTests extends BaseClass {
         MotorSportsPage.waitForRacesNextArrowButton();
         MotorSportsPage motorSportsPage = new MotorSportsPage();
         SeleniumUtils.scrollToElement(motorSportsPage.racesTitle);
-        motorSportsPage.clickRacesNextArrowButtonNTimes(3);
+        motorSportsPage.clickRacesNextArrowButtonNTimes(nextArrowNTimes);
 
-        Assert.assertEquals(secondLastRaceTitle, motorSportsPage.returnActiveCardRaceTitle());
-        Assert.assertEquals(secondLastRaceTrackDetail, motorSportsPage.returnActiveCardRaceTrackDetail());
-        Assert.assertEquals(secondLastRaceDate, motorSportsPage.returnActiveCardRaceDateDetail());
-        Assert.assertEquals(secondLastRaceLocation, motorSportsPage.returnActiveCardRaceLocationDetail());
+        Assert.assertEquals(raceTitle, motorSportsPage.returnActiveCardRaceTitle());
+        Assert.assertEquals(raceTrackDetail, motorSportsPage.returnActiveCardRaceTrackDetail());
+        Assert.assertEquals(raceData, motorSportsPage.returnActiveCardRaceDateDetail());
+        Assert.assertEquals(raceLocation, motorSportsPage.returnActiveCardRaceLocationDetail());
     }
 
     @Test(priority = 3)
@@ -144,5 +160,7 @@ public class WorldRacesTests extends BaseClass {
 
         Assert.assertEquals(lexusCollectionCheckoutRegistrationPage.signupSuccessNotification.getText(), LexusCollectionCheckoutRegistrationPage.SIGN_UP_SUCCESS_MESSAGE);
     }
+
+
 
 }
