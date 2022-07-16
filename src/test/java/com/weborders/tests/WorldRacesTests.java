@@ -3,14 +3,7 @@ package com.weborders.tests;
 import com.weborders.pages.*;
 import com.weborders.utilites.ConfigReader;
 import com.weborders.utilites.DataProviderCollection;
-import com.weborders.utilites.Driver;
 import com.weborders.utilites.SeleniumUtils;
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
