@@ -1,8 +1,6 @@
 package com.weborders.tests;
 
-import com.weborders.pages.HomePage;
-import com.weborders.pages.MotorSportsDriversPage;
-import com.weborders.pages.MotorSportsPage;
+import com.weborders.pages.*;
 import com.weborders.utilites.ConfigReader;
 import com.weborders.utilites.DataProviderCollection;
 import com.weborders.utilites.SeleniumUtils;
@@ -87,7 +85,64 @@ public class WorldRacesTests extends BaseClass {
         motorSportsPage.updateTargetingCookiesSlideStatus();
         SeleniumUtils.jsClick(motorSportsPage.cookieConsentOptionsSaveButton);
         Assert.assertEquals(SeleniumUtils.getColorHexFromRGBA(motorSportsPage.getTargetingCookiesSwitchSpan()), expectedBackgroundColor);
-
-
     }
+
+    @Test(priority = 4)
+    public void lexusShopPurchaseTowelEndToEnd() throws InterruptedException {
+        String towelProductURL = "https://www.thelexuscollection.com/products/728624";
+        driver.get(ConfigReader.getProperty("url"));
+        HomePage.waitForMotorSportsElementVisibility();
+        HomePage homePage = new HomePage();
+        SeleniumUtils.jsClick(homePage.motorSportsElement);
+        SeleniumUtils.switchToWindowByUrl("https://www.lexus.com/motorsports");
+
+        MotorSportsPage.waitForShopLexus();
+
+        MotorSportsPage motorSportsPage = new MotorSportsPage();
+        SeleniumUtils.scrollToElement(motorSportsPage.shopLexus);
+        SeleniumUtils.jsClick(motorSportsPage.shopLexus);
+
+        SeleniumUtils.switchToWindowByUrl("https://www.thelexuscollection.com/");
+        LexusCollectionPage.waitForLoginButton();
+        LexusCollectionPage lexusCollectionPage = new LexusCollectionPage();
+        lexusCollectionPage.loginButton.click();
+
+        LexusCollectionLoginPage.waitForForm();
+        LexusCollectionLoginPage lexusCollectionLoginPage = new LexusCollectionLoginPage();
+        lexusCollectionLoginPage.signUp();
+
+        LexusCollectionPage.waitForSignupSuccessNotification();
+        Assert.assertEquals(lexusCollectionPage.signupSuccessNotification.getText(), LexusCollectionPage.SIGN_UP_SUCCESS_MESSAGE);
+
+        LexusCollectionPage.waitForCloudThrowTowelItem();
+        lexusCollectionPage.cloudThrowTowelItem.click();
+
+        Assert.assertEquals(driver.getCurrentUrl(), towelProductURL);
+
+        LexusCollectionProductPage.waitForProductQuantityInput();
+        LexusCollectionProductPage lexusCollectionProductPage = new LexusCollectionProductPage();
+
+        lexusCollectionProductPage.setProductQuantity(lexusCollectionProductPage.getInStockCount() + 1);// try to add more than what's in stock and get the error message
+
+        lexusCollectionProductPage.addToCardButton.click();
+        LexusCollectionProductPage.waitForErrorNotification();
+        Assert.assertTrue(lexusCollectionProductPage.isErrorNotificationDisplayed());
+
+        lexusCollectionProductPage.setProductQuantity(lexusCollectionProductPage.getInStockCount() - 1); // needs to pass
+        Thread.sleep(1000);
+        Assert.assertTrue(lexusCollectionProductPage.itemPriceAndTotalMatching());
+        lexusCollectionProductPage.addToCardButton.click();
+
+        LexusCollectionCartPage.waitForTopCheckoutButton();
+        LexusCollectionCartPage lexusCollectionCartPage = new LexusCollectionCartPage();
+        lexusCollectionCartPage.topCheckoutButton.click();
+
+        LexusCollectionCheckoutRegistrationPage.waitForForm();
+
+        LexusCollectionCheckoutRegistrationPage lexusCollectionCheckoutRegistrationPage = new LexusCollectionCheckoutRegistrationPage();
+        lexusCollectionCheckoutRegistrationPage.signUp();
+
+        Assert.assertEquals(lexusCollectionCheckoutRegistrationPage.signupSuccessNotification.getText(), LexusCollectionCheckoutRegistrationPage.SIGN_UP_SUCCESS_MESSAGE);
+    }
+
 }

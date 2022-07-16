@@ -13,7 +13,8 @@ public class MotorSportsPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-
+    @FindBy(xpath = "//a[@href='https://www.thelexuscollection.com']")
+    public WebElement shopLexus;
     @FindBy(xpath = "//a[@href='/motorsports/drivers'][contains(@class, 'GlobalNav_primaryLink')]")
     public WebElement driversNavigationButton;
 
@@ -50,6 +51,10 @@ public class MotorSportsPage {
 
     public static void waitForCookieConsentOptions() {
         SeleniumUtils.waitForVisibility(By.xpath("//a[@href='#cookies']"), 5);
+    }
+
+    public static void waitForShopLexus(){
+        SeleniumUtils.waitForVisibility(By.xpath("//a[@href='https://www.thelexuscollection.com']"), 5);
     }
 
     public void clickRacesNextArrowButtonNTimes(int n) {
