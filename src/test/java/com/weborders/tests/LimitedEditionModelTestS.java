@@ -3,16 +3,12 @@ package com.weborders.tests;
 import com.weborders.pages.*;
 import com.weborders.utilites.ConfigReader;
 import com.weborders.utilites.SeleniumUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
-public class SprintTwoTestS extends BaseClass {
+public class LimitedEditionModelTestS extends BaseClass {
 
     @Test
     public void pressRelease() throws InterruptedException {
