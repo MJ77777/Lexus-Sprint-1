@@ -2,7 +2,7 @@ package com.weborders.utilites;
 
 import org.testng.annotations.DataProvider;
 
-public class DataProviderCollectionE {
+public class DataProviderCollection {
 
     @DataProvider (name= "carModelsWithYears")
     public static Object[][] getRandomCarModelsWithYearsData(){
@@ -12,6 +12,11 @@ public class DataProviderCollectionE {
         return new Object[][]{
                 {localObj[rand][0], localObj[rand][1]}
         };
+    }
+
+    @DataProvider (name= "getRaceDriversWithNumbersData", parallel = true)
+    public static Object[][] getRaceDriversWithNumbersData(){
+        return CSVReader.readFromCSV("LexusRaceDrivers.csv");
     }
 
     private static int randNumber(int min, int max) {

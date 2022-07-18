@@ -77,7 +77,7 @@ public class OwnershipTests extends BaseClass{
 
   }
 
-  @Test(priority = 4, dataProvider = "carModelsWithYears", dataProviderClass = DataProviderCollectionE.class)
+  @Test(priority = 4, dataProvider = "carModelsWithYears", dataProviderClass = DataProviderCollection.class)
   public void scheduleMaintenanceOnDriverLexus(String car, String year) throws InterruptedException {
     // create a csv file from the dropdown menu options, since the data cannot be obtained
     /*
