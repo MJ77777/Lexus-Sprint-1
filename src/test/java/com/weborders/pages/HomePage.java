@@ -91,4 +91,18 @@ public class HomePage {
 
 
 
+    @FindBy(xpath ="//a[@aria-label='CONNECTED TECHNOLOGY']")
+            public WebElement connectButton;
+    @FindBy(xpath ="//a[@aria-label='ROADSIDE ASSISTANCE']")
+    public WebElement roadsideButton;
+
+    @FindBy(xpath ="//a[@aria-label='BLUETOOTH']")
+    public WebElement bluetoothButton;
+
+    @FindBy(xpath ="//a[@aria-label='NAVIGATION']")
+    public WebElement navigationButton;
+
+    @FindBy(xpath ="//a[@aria-label='MAINTENANCE']")
+    public WebElement maintenanceButton;
+
 }
