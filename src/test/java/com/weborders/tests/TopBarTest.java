@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class topBar extends BaseClass {
+public class TopBarTest extends BaseClass {
     @Test(priority = 1)
     public void SEDAN() {
         String[] carModels={"IS",  "IS 500", "ES","ES HYBRID",  "LS",   "LS HYBRID"};
