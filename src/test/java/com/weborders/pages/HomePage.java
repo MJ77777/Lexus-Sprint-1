@@ -94,8 +94,14 @@ public class HomePage {
     @FindBy(xpath = "//div//a[@href='/offers']")//view all offers option
     public WebElement viewAllOffers;
 
+
+
+    @FindBy(xpath = "(//a[@href=\"https://www.thelexuscollection.com/\"])[3]")
+    public WebElement exploreCollections; // Sabina
+
     public static void waitForMotorSportsElementVisibility(){
         SeleniumUtils.waitForVisibility(By.xpath("(//a[@href='/motorsports'][contains(text(), 'LEARN MORE')])[1]"), 5);
     }
+
 
 }
