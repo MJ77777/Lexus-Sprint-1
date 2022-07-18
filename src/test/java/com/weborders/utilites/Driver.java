@@ -45,8 +45,8 @@ public class Driver {
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
                     FirefoxOptions firefoxOption=new FirefoxOptions();
-                    if (firefoxOption.getBinary()==null){
-                    firefoxOption.setBinary("C:\\Program Files\\Mozilla Firefox");}
+//                    if (firefoxOption.getBinary()==null){
+//                    firefoxOption.setBinary("C:\\Program Files\\Mozilla Firefox");}
                     drivers.set(new FirefoxDriver());
                     break;
                 case "firefox_headless":
