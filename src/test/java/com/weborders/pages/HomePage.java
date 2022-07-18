@@ -90,5 +90,7 @@ public class HomePage {
     public WebElement viewAllOffers;
 
 
+    @FindBy(xpath = "(//a[@href=\"https://www.thelexuscollection.com/\"])[3]")
+    public WebElement exploreCollections; // Sabina
 
 }

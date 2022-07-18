@@ -2,7 +2,6 @@ package com.weborders.tests;
 
 import com.weborders.pages.HomePage;
 import com.weborders.utilites.ConfigReader;
-import com.weborders.utilites.Driver;
 import com.weborders.utilites.SeleniumUtils;
 import org.testng.Assert;
 import org.openqa.selenium.Keys;
@@ -10,7 +9,7 @@ import org.testng.annotations.Test;
 
 
 
-public class SprintOne extends BaseClass {
+public class ShoppingToolsTestS extends BaseClass {
 
     @Test(groups = "smoke")
 
