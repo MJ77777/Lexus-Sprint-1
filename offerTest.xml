@@ -3,8 +3,8 @@
 <suite name="Social-media">
     <test name="Social Media Testing">
         <classes>
-            <class name="com.weborders.tests.TestOffersPageTest"/>
-<class name="com.weborders.tests.TestOffersEndToEndPageTest"></class>
+            <class name="com.weborders.tests.OffersPageTest"/>
+<class name="com.weborders.tests.OffersEndToEndPageTest"></class>
         </classes>
 
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Sprint 3 parallel" parallel="classes" thread-count="4" data-provider-thread-count="2">
+    <test name="Sprint 3 Tests">
+        <classes>
+            <class name="com.weborders.tests.WorldRacesTests" />
+            <class name="com.weborders.tests.BrandAndLifeStyleTest" />
+            <class name="com.weborders.tests.ConnectAndSupportTest" />
+            <class name="com.weborders.tests.CollectionsTest" />
+        </classes>
+    </test>
+</suite>

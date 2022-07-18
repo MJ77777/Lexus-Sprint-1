@@ -1,2 +1,2 @@
-call mvn clean test -D xmlFile=Smoke.xml
-call mvn test -D xmlFile=target/surefire-reports/testng-failed.xml
+call mvn clean test -D runner=Smoke.xml
+call mvn test -D runner=target/surefire-reports/testng-failed.xml

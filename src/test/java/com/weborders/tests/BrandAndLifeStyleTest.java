@@ -10,7 +10,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TestBrandAndLifeStyle extends BaseClass {
+public class BrandAndLifeStyleTest extends BaseClass {
 
     @Test
     public void lexusPerformance() throws InterruptedException {

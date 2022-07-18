@@ -1,6 +1,6 @@
 package com.weborders.tests;
 import com.weborders.pages.HomePage;
-import com.weborders.pages.connectedTechnologyPage;
+import com.weborders.pages.ConnectedTechnologyPage;
 import com.weborders.utilites.ConfigReader;
 import com.weborders.utilites.SeleniumUtils;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 
@@ -30,7 +31,7 @@ public class ConnectAndSupportTest extends BaseClass{
         driver.switchTo().window(newTab.get(1));
         Thread.sleep(3000);
 
-            connectedTechnologyPage model= new connectedTechnologyPage();
+            ConnectedTechnologyPage model= new ConnectedTechnologyPage();
             SeleniumUtils.jsClick(model.modelDropDown);
             SeleniumUtils.jsClick(model.carModel);
 
@@ -67,7 +68,7 @@ public class ConnectAndSupportTest extends BaseClass{
 
     }
     @Test(priority = 3)
-    public void Bluetooth() throws InterruptedException {
+    public void bluetooth() throws InterruptedException {
         driver.get(ConfigReader.getProperty("url"));
         ((JavascriptExecutor) driver).executeScript("scroll(0, 1000);");
 
@@ -98,10 +99,10 @@ public class ConnectAndSupportTest extends BaseClass{
             List<String> newTab = new ArrayList<>(driver.getWindowHandles());
             driver.switchTo().window(newTab.get(1));
 
-
          String PageSource= driver.getPageSource();
          String expectedText= "How does the navigation system work?";
-         Assert.assertTrue(PageSource.contains(expectedText));
+ConnectedTechnologyPage connected=new ConnectedTechnologyPage();
+         Assert.assertEquals(connected.navigationGetText.getText(),expectedText.toUpperCase());
 
             }}
 

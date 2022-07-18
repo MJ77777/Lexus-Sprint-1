@@ -4,7 +4,7 @@
 <suite name="Social-media" parallel="methods" thread-count="5">
     <test name="Parallel">
        <classes>
-       <class name="com.weborders.tests.TestBrandAndLifeStyle"></class>
+       <class name="com.weborders.tests.BrandAndLifeStyleTest"></class>
 
 
 

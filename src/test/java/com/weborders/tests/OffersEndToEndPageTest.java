@@ -9,7 +9,7 @@ import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TestOffersEndToEndPageTest extends BaseClass {
+public class OffersEndToEndPageTest extends BaseClass {
 //mvn test -Drunner=Smoke.xml
 
     @Test

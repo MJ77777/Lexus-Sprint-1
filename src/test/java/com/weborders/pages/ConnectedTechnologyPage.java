@@ -5,10 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class connectedTechnologyPage {
+public class ConnectedTechnologyPage {
 
 
-    public connectedTechnologyPage() {
+    public ConnectedTechnologyPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -29,6 +29,11 @@ public class connectedTechnologyPage {
 
     @FindBy(xpath ="//html[@lang='en']")
     public WebElement window;
+
+    @FindBy(xpath ="//article//h1[.='How does the navigation system work?']")
+    public WebElement navigationGetText;
+
+
 
 
 

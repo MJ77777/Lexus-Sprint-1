@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TestOffersPageTest extends BaseClass {
+public class OffersPageTest extends BaseClass {
 
 
     @Test
