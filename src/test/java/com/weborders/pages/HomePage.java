@@ -80,14 +80,34 @@ public class HomePage {
     @FindBy(xpath = "//a[@href='/newrx']")
     public WebElement newrx; // - Sabina
 
-    @FindBy(xpath = "//a[@href=\'/future/rz\']")
+    @FindBy(xpath = "//a[@href='/future/rz']")
     public WebElement rz450; // - Sabina
 
-    @FindBy(xpath = "//div[@id=\'content-grid\']")
+    @FindBy(xpath = "//div[@id='content-grid']")
     public WebElement LEM; // - Sabina
 
     @FindBy(xpath = "//div//a[@href='/offers']")//view all offers option
     public WebElement viewAllOffers;
+
+    @FindBy(xpath = "//a[.='LEXUS PERFORMANCE']")//view all offers option
+    public WebElement performanceFooter;
+
+    @FindBy(xpath = "//a[.='MOTORSPORTS']")//view all offers option
+    public WebElement motorFooter;
+
+    @FindBy(xpath = "//a[.='SAFETY TECHNOLOGY']")//view all offers option
+    public WebElement safetyFooter;
+
+    @FindBy(xpath = "//a[.='LEXUS HYBRID & ELECTRIC']")//view all offers option
+    public WebElement hybridElectricFooter;
+
+    @FindBy(xpath = "//a[.='LEXUS ELECTRIFIED']")//view all offers option
+    public WebElement electrifiedFooter;
+
+
+
+
+
 
 
 

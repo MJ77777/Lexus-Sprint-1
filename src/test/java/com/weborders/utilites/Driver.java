@@ -15,7 +15,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class Driver {
 
-    private static  ThreadLocal<WebDriver> drivers = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> drivers = new ThreadLocal<>();
 
     private Driver(){}
 
@@ -44,6 +44,9 @@ public class Driver {
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
+                    FirefoxOptions firefoxOption=new FirefoxOptions();
+                    if (firefoxOption.getBinary()==null){
+                    firefoxOption.setBinary("C:\\Program Files\\Mozilla Firefox");}
                     drivers.set(new FirefoxDriver());
                     break;
                 case "firefox_headless":

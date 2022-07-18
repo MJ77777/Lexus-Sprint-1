@@ -1,4 +1,4 @@
-call
-mvn test -D runner=Amine.xml -D browser=chrome
-mvn test -D runner=Amine.xml -D browser=edge
-mvn test -D runner=Amine.xml -D browser=firefox
+
+call mvn test -D runner=Smoke.xml -D browser=chrome
+call mvn test -D runner=Smoke.xml -D browser=edge
+call mvn test -D runner=Smoke.xml -D browser=firefox
