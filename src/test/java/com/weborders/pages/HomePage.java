@@ -1,6 +1,8 @@
 package com.weborders.pages;
 
 import com.weborders.utilites.Driver;
+import com.weborders.utilites.SeleniumUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -14,6 +16,9 @@ public class HomePage {
 
 
     }
+
+    @FindBy(xpath = "(//a[@href='/motorsports'][contains(text(), 'LEARN MORE')])[1]")
+    public WebElement motorSportsElement;
 
     @FindBy(xpath = "//div[@id='content-grid']/h3[contains(text(), 'LEXUS OWNERSHIP')]/following-sibling::div/div")
     public List<WebElement> lexusOwnershipDivs;
@@ -109,6 +114,27 @@ public class HomePage {
 
 
 
+
+
+    @FindBy(xpath ="//a[@aria-label='CONNECTED TECHNOLOGY']")
+            public WebElement connectButton;
+    @FindBy(xpath ="//a[@aria-label='ROADSIDE ASSISTANCE']")
+    public WebElement roadsideButton;
+
+    @FindBy(xpath ="//a[@aria-label='BLUETOOTH']")
+    public WebElement bluetoothButton;
+
+    @FindBy(xpath ="//a[@aria-label='NAVIGATION']")
+    public WebElement navigationButton;
+
+    @FindBy(xpath ="//a[@aria-label='MAINTENANCE']")
+    public WebElement maintenanceButton;
+    @FindBy(xpath = "(//a[@href=\"https://www.thelexuscollection.com/\"])[3]")
+    public WebElement exploreCollections; // Sabina
+
+    public static void waitForMotorSportsElementVisibility(){
+        SeleniumUtils.waitForVisibility(By.xpath("(//a[@href='/motorsports'][contains(text(), 'LEARN MORE')])[1]"), 5);
+    }
 
 
 }
