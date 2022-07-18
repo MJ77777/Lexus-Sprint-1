@@ -1,4 +1,4 @@
 #!/bin/sh
-mvn test -DxmlFile=smoke-test.xml -Dbrowser=chrome
-mvn test -DxmlFile=smoke-test.xml -Dbrowser=edge
-mvn test -DxmlFile=smoke-test.xml -Dbrowser=firefox
+mvn test -D xmlFile=smoke-test.xml -D browser=chrome
+mvn test -D xmlFile=smoke-test.xml -D browser=edge
+mvn test -D xmlFile=smoke-test.xml -D browser=firefox
