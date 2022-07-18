@@ -1,6 +1,8 @@
 package com.weborders.pages;
 
 import com.weborders.utilites.Driver;
+import com.weborders.utilites.SeleniumUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -14,6 +16,9 @@ public class HomePage {
 
 
     }
+
+    @FindBy(xpath = "(//a[@href='/motorsports'][contains(text(), 'LEARN MORE')])[1]")
+    public WebElement motorSportsElement;
 
     @FindBy(xpath = "//div[@id='content-grid']/h3[contains(text(), 'LEXUS OWNERSHIP')]/following-sibling::div/div")
     public List<WebElement> lexusOwnershipDivs;
@@ -89,6 +94,8 @@ public class HomePage {
     @FindBy(xpath = "//div//a[@href='/offers']")//view all offers option
     public WebElement viewAllOffers;
 
-
+    public static void waitForMotorSportsElementVisibility(){
+        SeleniumUtils.waitForVisibility(By.xpath("(//a[@href='/motorsports'][contains(text(), 'LEARN MORE')])[1]"), 5);
+    }
 
 }

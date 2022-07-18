@@ -194,5 +194,14 @@ public class SeleniumUtils {
         return Color.fromString(rgba).asHex();
     }
 
+    public static boolean isHeadless(){
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+
+        String userAgent = (String) js.executeScript("return navigator.userAgent");
+
+        return userAgent.toLowerCase().contains("headless");
+
+    }
+
 
 }
