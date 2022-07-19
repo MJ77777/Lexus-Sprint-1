@@ -27,23 +27,25 @@ public abstract class BaseClass {
 
 
     protected WebDriver driver;
-    protected static ExtentReports extentReports;  // manages the report generation
+    protected static ExtentReports extentReport;  // manages the report generation
     protected static ExtentSparkReporter htmlReport; // creates the html report file
     protected static ExtentTest logger; // manages the individual test steps and logs
     @BeforeSuite(alwaysRun = true)
     public void setupReport(){
-        extentReports =  new ExtentReports();
-        String pathToReportFile =   System.getProperty("user.dir")+"/target/extentReports/index.html";
+        extentReport =  new ExtentReports();
+        String browser = System.getProperty("browser");
+        String name = browser == null ? "" : browser;
+        String pathToReportFile =   System.getProperty("user.dir")+"/target/extentReports/"+name+"extentReport.html";
         htmlReport = new ExtentSparkReporter(pathToReportFile);
-        extentReports.attachReporter(htmlReport);
+        extentReport.attachReporter(htmlReport);
 
-
-        extentReports.setSystemInfo("Name", "Web Orders Automated Tests");
-        extentReports.setSystemInfo("Environment", "QA");
-        extentReports.setSystemInfo("SDET", "Sabina,Ebu,Majd,Lara,Amine");
-        extentReports.setSystemInfo("OS", System.getProperty("os.name"));
-        extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser"));
-        extentReports.setSystemInfo("Homepage", ConfigReader.getProperty("url"));
+        extentReport.setSystemInfo("Welcome to our project","Team B");
+        extentReport.setSystemInfo("Name", "Web Orders Automated Tests");
+        extentReport.setSystemInfo("Environment", "QA");
+        extentReport.setSystemInfo("SDET", "Sabina,Ebu,Majd,Lara,Amine");
+        extentReport.setSystemInfo("OS", System.getProperty("os.name"));
+        extentReport.setSystemInfo("Browser", ConfigReader.getProperty("browser"));
+        extentReport.setSystemInfo("Homepage", ConfigReader.getProperty("url"));
 
     }
 
@@ -55,7 +57,7 @@ public abstract class BaseClass {
         driver = Driver.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
-        logger = extentReports.createTest(method.getName());  // create the logger object
+        logger = extentReport.createTest(method.getName());  // create the logger object
 
     }
 
@@ -81,7 +83,7 @@ public abstract class BaseClass {
 
     @AfterSuite(alwaysRun = true)
     public void tearDownReport(){
-        extentReports.flush();
+        extentReport.flush();
     }
 
 }
