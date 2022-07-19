@@ -81,7 +81,7 @@ public class Driver {
 
 
 
-    public static void quitDriver(){
+    public static synchronized void quitDriver(){
         if(drivers.get() != null){
             drivers.get().quit();
             drivers.remove();
